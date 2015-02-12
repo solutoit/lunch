@@ -9,12 +9,12 @@ using Footinder.Models;
 
 namespace Footinder.Controllers
 {
-    public class LunchGroupController : Controller
+    public class YourGroupController : Controller
     {
         private readonly RepositoryFactory mRepositoryFactory;
         private readonly LunchGroupsDecider mLunchGroupsDecider;
 
-        public LunchGroupController()
+        public YourGroupController()
         {
             mLunchGroupsDecider = new LunchGroupsDecider();
             mRepositoryFactory = new RepositoryFactory();
@@ -29,12 +29,12 @@ namespace Footinder.Controllers
 
             var restuartntGroup = mLunchGroupsDecider.Decide(votesForToday);
 
-            var currentUser = new User();
+            var currentUser = (User)Session["User"];
 
-            var userRestaurntGrop = restuartntGroup.First(x => x.Value.Contains(currentUser));
+            var userRestaurntGrop = restuartntGroup.First(x => x.Value.Any(y =>y.Name == currentUser.Name));
             userRestaurntGrop.Value.Remove(currentUser);
 
-            var lunchGroupModel = new LunchGroupModel
+            var yourGroupModel = new YourGroupModel
             {
                 Restaurant = userRestaurntGrop.Key,
                 GroupUsers = userRestaurntGrop.Value,
@@ -42,7 +42,7 @@ namespace Footinder.Controllers
                 LaunchTime = new DateTime(now.Year, now.Month, now.Day, 12, 0, 0)
             };
 
-            return View(lunchGroupModel);
+            return View(yourGroupModel);
         }
 
     }

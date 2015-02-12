@@ -3,10 +3,13 @@
 		if(!this.props.restaurant) return <noscript/>;
 
 		return (
-		<div className="rest">
-			<div className="pic"><img src={this.props.restaurant.LogoUri}/></div>
-			<div className="details">
-				<div className="title">{this.props.restaurant.Name}</div>
+		<div className="restaurant">
+			<img className="logo" src={this.props.restaurant.LogoUri}/>
+			<div className="about_palce">
+				<strong>{this.props.restaurant.Name} <br/></strong>
+				Address:{this.props.restaurant.Address} <br/>
+				Distance:{this.props.restaurant.DistanceMeters} Meters <br/>
+				Walking time:{this.props.restaurant.WalkingTimeMinutes} minutes <br/>
 			</div>
 		</div>
 		);
@@ -22,8 +25,8 @@ var DecisionButtons = React.createClass({
 		var onYes = this.decisionHandler.bind(this, true);
 		return (
 			<div className='decision-buttons'>
-				<button onClick={onNo}>no</button>
-				<button onClick={onYes}>yes</button>
+				<div className="no_icon" onClick={onNo}></div>
+				<div className="yes_icon" onClick={onYes}></div>
 			</div>
 		);
 	}
@@ -58,7 +61,9 @@ var App = React.createClass({
     },
 	render: function() {
 		return (
-		<div>
+		<div className="w-container container">
+			<h1>Soluto Lunchbox</h1>
+			<p className="subtitle">Where should we eat today?</p>
 			<RestaurantView restaurant={this.getCurrentRest()} />
 			<DecisionButtons decisionHandler={this.decisionHandler} />
 		</div>
