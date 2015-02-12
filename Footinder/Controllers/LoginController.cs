@@ -8,7 +8,7 @@ namespace Footinder.Controllers
     {
         //
         // GET: /Login/
-        private RepositoryFactory mRepositoryFactory;
+        private readonly RepositoryFactory mRepositoryFactory;
 
         public LoginController()
         {
