@@ -3,25 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Footinder.DataAccess;
 using Footinder.Models;
 
 namespace Footinder.Controllers
 {
     public class RestaurantsController : Controller
     {
-        //
-        // GET: /Restaurants/
+        private RestaurantsRepository mRestaurantRepository;
+
+        public RestaurantsController()
+        {
+            mRestaurantRepository = new RestaurantsRepository();
+        }
 
         public ActionResult Index()
         {
-            var data = new Restaurant[]
-            {
-                new Restaurant { Name = "פטרוזיליה", Id = Guid.NewGuid().ToString()},
-                new Restaurant { Name = "רוסטיקו", Id = Guid.NewGuid().ToString()},
-                new Restaurant { Name = "סאלם בומביי", Id = Guid.NewGuid().ToString()},
-            };
-
-            return Json(data, JsonRequestBehavior.AllowGet);
+            return Json(mRestaurantRepository.ListRestaurants(), JsonRequestBehavior.AllowGet);
         }
     }
 }
