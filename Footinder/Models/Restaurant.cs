@@ -17,5 +17,21 @@ namespace Footinder.Models
         public int WalkingTimeMinutes { get; set; }
         public string Address { get; set; }
         public string LogoUri { get; set; }
+        
+        public override bool Equals(object obj)
+        {
+         
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            return Id == ((Restaurant) obj).Id;
+        }
+        
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
     }
 }
