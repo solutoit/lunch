@@ -21,7 +21,7 @@ var DecisionButtons = React.createClass({
 		var onNo = this.decisionHandler.bind(this, false);
 		var onYes = this.decisionHandler.bind(this, true);
 		return (
-			<div class='decision-buttons'>
+			<div className='decision-buttons'>
 				<button onClick={onNo}>no</button>
 				<button onClick={onYes}>yes</button>
 			</div>
