@@ -9,6 +9,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Footinder.Models
 {
+    [Collection("votes")]
     public class Vote : IIdentifiable
     {
         public string Date { get; set; }
