@@ -27,7 +27,7 @@ namespace Footinder.DataAccess
 
         public T GetOne(string id)
         {
-            var query = Query<T>.EQ(e => e.Id, new ObjectId(id));
+            var query = Query<T>.EQ(e => e.Id, id);
             return mCollection.Find(query).First();
         }
 
