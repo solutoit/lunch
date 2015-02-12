@@ -25,7 +25,7 @@ namespace Footinder.Controllers
             var votes = mRepositoryFactory.Create<Vote>().List();
 
             var now = DateTime.Now;
-            var votesForToday = votes.Where(x => x.Date.Date == now.Date && x.Decision);
+            var votesForToday = votes.Where(x => x.Date.Date == now.Date && x.Decision && x.User != null);
 
             var restuartntGroup = mLunchGroupsDecider.Decide(votesForToday);
 
@@ -37,7 +37,7 @@ namespace Footinder.Controllers
             var yourGroupModel = new YourGroupModel
             {
                 Restaurant = userRestaurntGrop.Key,
-                GroupUsers = userRestaurntGrop.Value,
+                GroupUsers = userRestaurntGrop.Value.Where(x=>x !=null).ToList(),
                 CurrentUser = currentUser,
                 LaunchTime = new DateTime(now.Year, now.Month, now.Day, 12, 0, 0)
             };

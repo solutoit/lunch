@@ -34,10 +34,11 @@ namespace Footinder.Controllers
             var user = userRepo.GetOne(u => u.Name ,name);
             if (user == null)
             {
-                userRepo.Insert(new User()
+                user = new User()
                 {
                     Name = name
-                });
+                };
+                userRepo.Insert(user);
             }
 
             Session["User"] = user;
