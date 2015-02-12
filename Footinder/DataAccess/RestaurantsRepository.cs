@@ -16,7 +16,7 @@ namespace Footinder.DataAccess
 
         private MongoDatabase GetDb()
         {
-            var client = new MongoClient(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            var client = new MongoClient(ConfigurationManager.ConnectionStrings["mongodb"].ConnectionString);
             var server = client.GetServer();
             var db = server.GetDatabase("lunch");
             return db;
