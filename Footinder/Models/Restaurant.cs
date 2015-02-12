@@ -5,13 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Footinder.DataAccess;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Footinder.Models
 {
     [Collection("restaurants")]
-    public class Restaurant : IMongoIdentifiable
+    public class Restaurant : IIdentifiable
     {
-        public ObjectId Id { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
+
         public string Name { get; set; }
         public int DistanceMeters { get; set; }
         public int WalkingTimeMinutes { get; set; }

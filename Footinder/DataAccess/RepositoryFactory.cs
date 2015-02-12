@@ -7,7 +7,7 @@ namespace Footinder.DataAccess
 {
     public class RepositoryFactory
     {
-        public Repository<T> Create<T>() where T : IMongoIdentifiable
+        public Repository<T> Create<T>() where T : IIdentifiable
         {
             var attribute = typeof (T).GetCustomAttributes(typeof(CollectionAttribute), false).FirstOrDefault() as CollectionAttribute;
             var database = GetDb();

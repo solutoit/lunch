@@ -204,6 +204,7 @@
     <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Controllers\VoteController.cs" />
     <Compile Include="DataAccess\CollectionAttribute.cs" />
+    <Compile Include="DataAccess\IIdentifiable.cs" />
     <Compile Include="DataAccess\Repository.cs" />
     <Compile Include="DataAccess\RepositoryFactory.cs" />
     <Compile Include="BuisnessLogic\LunchGroupsDecider.cs" />
