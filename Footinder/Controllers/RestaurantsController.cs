@@ -10,7 +10,7 @@ namespace Footinder.Controllers
 {
     public class RestaurantsController : Controller
     {
-        private RepositoryFactory mRepositoryFactory;
+        private readonly RepositoryFactory mRepositoryFactory;
 
         public RestaurantsController()
         {
@@ -19,7 +19,8 @@ namespace Footinder.Controllers
 
         public ActionResult Index()
         {
-            return Json(mRepositoryFactory.Create<Restaurant>().List(), JsonRequestBehavior.AllowGet);
+            var restaurants = mRepositoryFactory.Create<Restaurant>().List();
+            return Json(restaurants, JsonRequestBehavior.AllowGet);
         }
     }
 }

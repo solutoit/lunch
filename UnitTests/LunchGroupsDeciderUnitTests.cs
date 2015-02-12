@@ -56,8 +56,7 @@ namespace UnitTests
                 users.Add(new User
                 {
                     Name = i.ToString(),
-                    UserId = i,
-                    UserName = i.ToString()
+                    Id = i.ToString(),
                 });
             }
             return users;
