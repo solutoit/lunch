@@ -1,8 +1,8 @@
 ﻿var UserNameEditor = React.createClass({
 	render: function() {
 		return (
-			<form action="/DoLogin" method="post" className="w-clearfix">
-				<input className="w-input field" type="text" name="email" placeholder="Enter your email address" />
+			<form action="/Login/DoLogin" method="post" className="w-clearfix">
+				<input className="w-input field" type="text" name="name" placeholder="Enter your soluto domain name" />
 				<button className="w-button button" type="submit">Login</button>
 			</form>
 		);

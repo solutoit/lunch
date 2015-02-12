@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Footinder.DataAccess;
+using User = Footinder.Models.User;
 
 namespace Footinder.Controllers
 {
@@ -10,11 +8,36 @@ namespace Footinder.Controllers
     {
         //
         // GET: /Login/
+        private RepositoryFactory mRepositoryFactory;
+
+        public LoginController()
+        {
+            mRepositoryFactory = new RepositoryFactory();
+        }
 
         public ActionResult Index()
         {
             return View();
         }
-        
+
+        [System.Web.Http.HttpPost]
+        public RedirectResult DoLogin(string name)
+        {
+            var userRepo = mRepositoryFactory.Create<User>();
+            var user = userRepo.GetOne(u => u.Name ,name);
+            if (user == null)
+            {
+                userRepo.Insert(new User()
+                {
+                    Name = name
+                });
+            }
+            else
+            {
+                Session["User"] = user;
+            }
+
+            return Redirect("/Decisions");
+        }
     }
 }
