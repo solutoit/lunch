@@ -44,9 +44,14 @@ var App = React.createClass({
         return this.state.restaurants[this.state.currentRest];
     },
     decisionHandler: function(decision) {
+    	// Update server
+		$.post('/api/Vote?id=' + this.getCurrentRest().Id + '&vote=' + decision);
+
     	var curr = this.state.currentRest;
+
+    	// If finished all restaurants, navigate to grouping page
     	if(curr == this.state.restaurants.length - 1) {
-    		console.log('go to results');
+    		window.location.href = '/YourGroup';
     	}
 
     	this.setState({currentRest: curr + 1});
@@ -55,7 +60,7 @@ var App = React.createClass({
 		return (
 		<div>
 			<RestaurantView restaurant={this.getCurrentRest()} />
-			<DecisionButtons decisionHandler={this.decisionHandler}/>
+			<DecisionButtons decisionHandler={this.decisionHandler} />
 		</div>
 		);
 	}
