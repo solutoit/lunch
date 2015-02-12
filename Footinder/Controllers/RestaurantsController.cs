@@ -10,7 +10,7 @@ namespace Footinder.Controllers
 {
     public class RestaurantsController : Controller
     {
-        private RepositoryFactory mRepositoryFactory;
+        private readonly RepositoryFactory mRepositoryFactory;
 
         public RestaurantsController()
         {
