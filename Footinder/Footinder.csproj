@@ -202,11 +202,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DecisionsController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
-    <Compile Include="Controllers\VotingController.cs" />
+    <Compile Include="Controllers\VoteController.cs" />
+    <Compile Include="DataAccess\CollectionAttribute.cs" />
+    <Compile Include="DataAccess\Repository.cs" />
     <Compile Include="DataAccess\RepositoryFactory.cs" />
-    <Compile Include="DataAccess\RestaurantsRepository.cs" />
     <Compile Include="BuisnessLogic\LunchGroupsDecider.cs" />
-    <Compile Include="DataAccess\VotingRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

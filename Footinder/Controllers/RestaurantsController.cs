@@ -10,16 +10,16 @@ namespace Footinder.Controllers
 {
     public class RestaurantsController : Controller
     {
-        private RestaurantsRepository mRestaurantRepository;
+        private RepositoryFactory mRepositoryFactory;
 
         public RestaurantsController()
         {
-            mRestaurantRepository = new RestaurantsRepository();
+            mRepositoryFactory = new RepositoryFactory();
         }
 
         public ActionResult Index()
         {
-            return Json(mRestaurantRepository.ListRestaurants(), JsonRequestBehavior.AllowGet);
+            return Json(mRepositoryFactory.Create<Restaurant>().List(), JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -9,7 +9,7 @@ using MongoDB.Bson;
 namespace Footinder.Models
 {
     [Collection("restaurants")]
-    public class Restaurant
+    public class Restaurant : IMongoIdentifiable
     {
         public ObjectId Id { get; set; }
         public string Name { get; set; }

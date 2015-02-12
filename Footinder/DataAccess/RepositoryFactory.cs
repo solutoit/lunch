@@ -1,30 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Linq;
 using System.Web;
 using MongoDB.Driver;
 
 namespace Footinder.DataAccess
 {
-    public class Repository<T>
-    {
-        private MongoCollection<T> mCollection;
-
-        public Repository(MongoCollection<T> mongoCollection)
-        {
-            mCollection = mongoCollection;
-        }
-
-        public IEnumerable<T> List()
-        {
-            return mCollection.FindAll();
-        }
-    }
-
     public class RepositoryFactory
     {
-        public Repository<T> Create<T>()
+        public Repository<T> Create<T>() where T : IMongoIdentifiable
         {
             var attribute = typeof (T).GetCustomAttributes(typeof(CollectionAttribute), false).FirstOrDefault() as CollectionAttribute;
             var database = GetDb();
@@ -37,17 +20,6 @@ namespace Footinder.DataAccess
             var server = client.GetServer();
             var db = server.GetDatabase("lunch");
             return db;
-        }
-
-    }
-
-    public class CollectionAttribute : Attribute
-    {
-        public string CollectionName { get; set; }
-
-        public CollectionAttribute(string collectionName)
-        {
-            CollectionName = collectionName;
         }
     }
 }
