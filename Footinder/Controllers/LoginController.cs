@@ -23,6 +23,7 @@ namespace Footinder.Controllers
         [System.Web.Http.HttpPost]
         public RedirectResult DoLogin(string name)
         {
+            name = name.ToLower();
             var userRepo = mRepositoryFactory.Create<User>();
             var user = userRepo.GetOne(u => u.Name ,name);
             if (user == null)
