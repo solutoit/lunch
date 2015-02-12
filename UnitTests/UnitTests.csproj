@@ -56,10 +56,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExtendedMongoMembership\ExtendedMongoMembership.csproj">
-      <Project>{3DAE074D-3193-4972-AB51-9CE16C4F01B0}</Project>
-      <Name>ExtendedMongoMembership</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Footinder\Footinder.csproj">
       <Project>{4b622f26-cad3-46e3-b743-a7b4ce93d437}</Project>
       <Name>Footinder</Name>

@@ -22,7 +22,7 @@ namespace Footinder.Controllers
         {
             var voteItem = new Vote
             {
-                Date = DateTime.UtcNow.ToString("yyyyMMdd"),
+                Date = DateTime.UtcNow,
                 Decision = vote,
                 Restaurant = mRepositoryFactory.Create<Restaurant>().GetOne(id),
                 User = new User { Name = User.Identity.Name },
