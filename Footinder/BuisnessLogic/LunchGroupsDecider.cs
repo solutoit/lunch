@@ -6,11 +6,12 @@ namespace Footinder.BuisnessLogic
 {
     public class LunchGroupsDecider
     {
-        public List<KeyValuePair<Restaurant, List<User>>> Decide(List<Vote> votes)
+        public List<KeyValuePair<Restaurant, List<User>>> Decide(IEnumerable<Vote> votes)
         {
-            var unPlacedUsers = votes.Select(x => x.User).Distinct().ToList();
-            var positiveVotes = votes.Where(x => x.Decision);
-            var votesForRestaurants = TransformToVotesForRestaurants(positiveVotes);
+            var votesArr = votes as Vote[] ?? votes.ToArray();
+            var unPlacedUsers = votesArr.Select(x => x.User).Distinct().ToList();
+
+            var votesForRestaurants = TransformToVotesForRestaurants(votesArr);
                 
             var groupsForLaunch = GetUserRestruantGroupsFor(votesForRestaurants, unPlacedUsers, 3);
 

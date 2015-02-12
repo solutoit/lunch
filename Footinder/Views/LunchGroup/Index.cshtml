@@ -1,8 +1,28 @@
-﻿@model dynamic
+﻿@model Footinder.Models.LunchGroupModel
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<h2>Here's where you're dining today </h2>
+
+<img src="@Model.Restaurant.LogoUri" />
+<div>Address: @Model.Restaurant.Address</div>
+<div>Distance: @Model.Restaurant.DistanceMeters</div>
+<div>Walking time: @Model.Restaurant.WalkingTimeMinutes</div>
+
+<h2>Here's who you're dining with </h2>
+<ul>
+    @foreach (var user in Model.GroupUsers)
+    {
+        <li>
+            <img src="@user.Name"/> 
+            <span>@user.Name</span>
+        </li>
+    }
+</ul>
+<h2>Here's when you'r dining</h2>
+<div>@Model.LaunchTime.ToString("HH:mm:ss")</div>
+
+
