@@ -254,9 +254,12 @@
     <Content Include="Content\Site.css" />
     <None Include="Lib\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\loginbg.png" />
+    <Content Include="Images\no.svg" />
+    <Content Include="Images\yes.svg" />
     <Content Include="Lib\jquery-1.8.2.js" />
     <Content Include="Lib\jquery-1.8.2.min.js" />
     <Content Include="Lib\_references.js" />
+    <Content Include="Style\decisions.css" />
     <Content Include="Style\login.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

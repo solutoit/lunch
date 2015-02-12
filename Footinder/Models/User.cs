@@ -15,7 +15,7 @@ namespace Footinder.Models
 
         public string GravatarUri
         {
-            get { return CalculateMd5Hash("http://www.gravatar.com/avatar/" + Name + "@soluto.com"); }
+            get { return "http://www.gravatar.com/avatar/" + CalculateMd5Hash(Name + "@soluto.com"); }
         }
 
         public string CalculateMd5Hash(string input)
