@@ -59,6 +59,7 @@ var App = React.createClass({
     	// If finished all restaurants, navigate to grouping page
     	if(curr == this.state.restaurants.length - 1) {
     		window.location.href = '/YourGroup';
+    		return;
     	}
 
     	this.setState({currentRest: curr + 1});

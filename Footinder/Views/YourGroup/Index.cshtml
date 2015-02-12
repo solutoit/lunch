@@ -1,28 +1,74 @@
-﻿@model Footinder.Models.YourGroupModel
+﻿@using Microsoft.Ajax.Utilities
+@model Footinder.Models.YourGroupModel
 
 @{
-    ViewBag.Title = "title";
     Layout = null;
 }
-<div style="width: 100%; margin: auto 100%"></div>
-<h2>Here's where you're dining today </h2>
 
-<img src="@Model.Restaurant.LogoUri" />
-<div>Address: @Model.Restaurant.Address</div>
-<div>Distance: @Model.Restaurant.DistanceMeters</div>
-<div>Walking time: @Model.Restaurant.WalkingTimeMinutes</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="@Url.Content("~/Style/webflow.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Style/yourgroup.css")" />
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+    <script>
+        WebFont.load({
+            google: {
+                families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic", "Montserrat:400,700", "Merriweather:300,400,700,900", "Petit Formal Script:regular"]
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="content" class="header-section">
+        <div class="w-container container">
+            <h1>Soluto Lunchbox</h1>
+            <p class="subtitle">Here’s where you're dining to day</p>
+            <div class="restaurant">
+                <div class="w-row">
+                    <div class="w-col w-col-6 w-clearfix">
+                        <img class="logo" src="@Model.Restaurant.LogoUri" />
 
-<h2>Here's who you're dining with </h2>
-<ul>
-    @foreach (var user in Model.GroupUsers)
-    {
-        <li>
-            <img src="@user.GravatarUri"/> 
-            <span>@user.Name</span>
-        </li>
-    }
-</ul>
-<h2>Here's when you'r dining</h2>
-<div>@Model.LaunchTime.ToString("HH:mm:ss")</div>
+                        <div class="about_palce">
+                            <strong>@Model.Restaurant.Name <br/> <br/></strong>
+                            Address: @Model.Restaurant.Address <br/>
+                            Distance: @Model.Restaurant.DistanceMeters Meters <br/>
+                            Walking time: @Model.Restaurant.WalkingTimeMinutes Minutes
+                        </div>
 
+                    </div>
+                    <div class="w-col w-col-6 column2">
+                        <div class="who"><strong>Here's who you're dining with at @Model.LaunchTime.ToString("hh:mm")</strong></div>
+                        <div class="avata_section">
+                            @{
+                                var items = Model.GroupUsers.Select((value, index) => new { Index = index, Value = value })
+                                                            .GroupBy(x => x.Index / 4)
+                                                            .Select(g => g.Select(x => x.Value).ToList())
+                                                            .ToList();
+                            }
+                            @foreach (var item in items)
+                            {
+                                <div class="w-row avatar_line">
+                                    @foreach (var user in item)
+                                    {
+                                        <div class="w-col w-col-3">
+                                            <img src="@user.GravatarUri" title="@user.Name" />
+                                            <span>@user.Name</span>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
 
+                </div>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+</body>
+</html>

@@ -261,6 +261,8 @@
     <Content Include="Lib\_references.js" />
     <Content Include="Style\decisions.css" />
     <Content Include="Style\login.css" />
+    <Content Include="Style\webflow.css" />
+    <Content Include="Style\yourgroup.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

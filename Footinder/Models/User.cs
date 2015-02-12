@@ -25,7 +25,7 @@ namespace Footinder.Models
             var sb = new StringBuilder();
             foreach (var b in hash) sb.Append(b.ToString("X2"));
 
-            return sb.ToString();
+            return sb.ToString().ToLower();
         }
 
         public override bool Equals(object obj)
