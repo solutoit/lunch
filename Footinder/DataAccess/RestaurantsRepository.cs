@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using Footinder.Models;
 using MongoDB.Driver;
 
@@ -15,7 +16,7 @@ namespace Footinder.DataAccess
 
         private MongoDatabase GetDb()
         {
-            var client = new MongoClient("mongodb://lunchuser:supersecure@ds041851.mongolab.com:41851/lunch");
+            var client = new MongoClient(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             var server = client.GetServer();
             var db = server.GetDatabase("lunch");
             return db;
