@@ -14,12 +14,12 @@ namespace Footinder.Models
 
         public override bool Equals(object obj)
         {
-            return Id == ((User) obj).Id;
+            return UserId == ((User)obj).UserId;
         }
 
         public override int GetHashCode()
         {
-            return Id.GetHashCode();
+            return UserId.GetHashCode();
         }
     }
 }
