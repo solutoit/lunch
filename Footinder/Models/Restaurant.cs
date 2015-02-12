@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Footinder.DataAccess;
 using MongoDB.Bson;
 
 namespace Footinder.Models
 {
+    [Collection("restaurants")]
     public class Restaurant
     {
         public ObjectId Id { get; set; }
