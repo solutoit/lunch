@@ -33,10 +33,9 @@ namespace Footinder.Controllers
                     Name = name
                 });
             }
-            else
-            {
-                Session["User"] = user;
-            }
+
+            Session["User"] = user;
+
 
             return Redirect("/Decisions");
         }
