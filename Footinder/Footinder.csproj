@@ -201,6 +201,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DecisionsController.cs" />
+    <Compile Include="Controllers\LunchGroupController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Controllers\VoteController.cs" />
     <Compile Include="DataAccess\CollectionAttribute.cs" />
@@ -298,6 +299,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Decisions\Index.cshtml" />
+    <Content Include="Views\LunchGroup\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
