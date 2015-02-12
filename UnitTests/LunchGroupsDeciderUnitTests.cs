@@ -40,7 +40,7 @@ namespace UnitTests
         {
             return users.Select(user => new Vote
             {
-                Restaurant = restaurant, User = user, Decision = true, Date = "20080115"
+                Restaurant = restaurant, User = user, Decision = true, Date = DateTime.Now
             }).ToList();
         }
 
