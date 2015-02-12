@@ -1,4 +1,7 @@
 ﻿var RestaurantView = React.createClass({
+	decisionHandler:function(decision) {
+		this.props.decisionHandler(decision);
+	},
 	render:function() {
 		if(!this.props.restaurant) return <noscript/>;
 
@@ -11,6 +14,7 @@
 				Distance:{this.props.restaurant.DistanceMeters} Meters <br/>
 				Walking time:{this.props.restaurant.WalkingTimeMinutes} minutes <br/>
 			</div>
+			<DecisionButtons decisionHandler={this.decisionHandler} />
 		</div>
 		);
 	}
@@ -25,8 +29,8 @@ var DecisionButtons = React.createClass({
 		var onYes = this.decisionHandler.bind(this, true);
 		return (
 			<div className='decision-buttons'>
-				<div className="no_icon" onClick={onNo}></div>
-				<div className="yes_icon" onClick={onYes}></div>
+				<div className="no_icon" onClick={onNo}><img className="no_icon_svg" src="Images/no.svg" /></div>
+				<div className="yes_icon" onClick={onYes}><img className="yes_icon_svg" src="Images/yes.svg" /></div>
 			</div>
 		);
 	}
@@ -64,8 +68,7 @@ var App = React.createClass({
 		<div className="w-container container">
 			<h1>Soluto Lunchbox</h1>
 			<p className="subtitle">Where should we eat today?</p>
-			<RestaurantView restaurant={this.getCurrentRest()} />
-			<DecisionButtons decisionHandler={this.decisionHandler} />
+			<RestaurantView restaurant={this.getCurrentRest()} decisionHandler={this.decisionHandler} />
 		</div>
 		);
 	}
