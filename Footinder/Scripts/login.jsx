@@ -1,8 +1,8 @@
 ﻿var UserNameEditor = React.createClass({
 	render: function() {
 		return (
-			<form action="/DoLogin" method="post">
-				<input type="text" name="email" value="Type your soluto mail address" />
+			<form action="/Login/DoLogin" method="post">
+				<input type="text" name="name"  />
 				<button type="submit">Login</button>
 			</form>
 		);

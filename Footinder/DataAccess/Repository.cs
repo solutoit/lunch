@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
@@ -23,6 +25,12 @@ namespace Footinder.DataAccess
         public void Insert(T item)
         {
             mCollection.Insert(item);
+        }
+
+        public T GetOne(Expression<Func<T, object>> field, object value)
+        {
+            var query = Query<T>.EQ(field, value);
+            return mCollection.Find(query).FirstOrDefault();
         }
 
         public T GetOne(string id)
