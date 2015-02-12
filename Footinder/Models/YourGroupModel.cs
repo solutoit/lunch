@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Footinder.Models
 {
-    public class LunchGroupModel
+    public class YourGroupModel
     {
         public Restaurant Restaurant { get; set; }
         public List<User> GroupUsers { get; set; }

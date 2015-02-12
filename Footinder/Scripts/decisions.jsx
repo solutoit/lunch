@@ -48,7 +48,7 @@ var App = React.createClass({
     },
     decisionHandler: function(decision) {
     	// Update server
-		$.post('/api/Vote?id=' + this.getCurrentRest().Id + '&vote=' + decision);
+		$.post('/Vote?id=' + this.getCurrentRest().Id + '&vote=' + decision);
 
     	var curr = this.state.currentRest;
 
