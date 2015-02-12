@@ -11,5 +11,15 @@ namespace Footinder.Models
     {
         // public string Id { get; set; } //UserId is in the base class
         public string Name { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return UserId == ((User)obj).UserId;
+        }
+
+        public override int GetHashCode()
+        {
+            return UserId.GetHashCode();
+        }
     }
 }

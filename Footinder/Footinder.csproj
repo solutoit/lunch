@@ -203,6 +203,7 @@
     <Compile Include="Controllers\DecisionsController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="DataAccess\RestaurantsRepository.cs" />
+    <Compile Include="BuisnessLogic\LunchGroupsDecider.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

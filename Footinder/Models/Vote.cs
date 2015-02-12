@@ -9,9 +9,9 @@ namespace Footinder.Models
     public class Vote
     {
         public string Date { get; set; }
-        public string RestauarantId { get; set; }
+        public Restaurant Restaurant { get; set; }
 
         public bool Decision { get; set; }
-        public string UserId { get; set; }
+        public User User { get; set; }
     }
 }
