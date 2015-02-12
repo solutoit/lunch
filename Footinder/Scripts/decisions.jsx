@@ -29,8 +29,8 @@ var DecisionButtons = React.createClass({
 		var onYes = this.decisionHandler.bind(this, true);
 		return (
 			<div className='decision-buttons'>
-				<div className="no_icon" onClick={onNo}><img className="no_icon_svg" src="Images/no.svg" /></div>
-				<div className="yes_icon" onClick={onYes}><img className="yes_icon_svg" src="Images/yes.svg" /></div>
+				<div className="no_icon decide-button" onClick={onNo}><img className="no_icon_svg" src="Images/no.svg" /></div>
+				<div className="yes_icon decide-button" onClick={onYes}><img className="yes_icno_svg" src="Images/yes.svg" /></div>
 			</div>
 		);
 	}
