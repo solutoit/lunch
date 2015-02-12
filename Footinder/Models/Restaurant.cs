@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Footinder.DataAccess;
 using MongoDB.Bson;
 
 namespace Footinder.Models
 {
-    public class Restaurant
+    [Collection("restaurants")]
+    public class Restaurant : IMongoIdentifiable
     {
         public ObjectId Id { get; set; }
         public string Name { get; set; }

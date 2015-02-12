@@ -203,7 +203,10 @@
     <Compile Include="Controllers\DecisionsController.cs" />
     <Compile Include="Controllers\LunchGroupController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
-    <Compile Include="DataAccess\RestaurantsRepository.cs" />
+    <Compile Include="Controllers\VoteController.cs" />
+    <Compile Include="DataAccess\CollectionAttribute.cs" />
+    <Compile Include="DataAccess\Repository.cs" />
+    <Compile Include="DataAccess\RepositoryFactory.cs" />
     <Compile Include="BuisnessLogic\LunchGroupsDecider.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -299,6 +302,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Voting\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
