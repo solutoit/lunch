@@ -24,9 +24,9 @@ namespace UnitTests
         public void SetUp()
         {
             mLunchGroupsDecider = new LunchGroupsDecider();
-            FirstRestaurant = new Restaurant { Id = new ObjectId("518cbb1389da79d3a25453f0") };
-            SecondRestaurant = new Restaurant { Id = new ObjectId("518cbb1389da79d3a25453f9") };
-            ThirdRestaurant = new Restaurant { Id = new ObjectId("518cbb1389da79d3a25453f1") };
+            FirstRestaurant = new Restaurant { Id = "518cbb1389da79d3a25453f0" };
+            SecondRestaurant = new Restaurant { Id = "518cbb1389da79d3a25453f9" };
+            ThirdRestaurant = new Restaurant { Id = "518cbb1389da79d3a25453f1" };
         }
 
         [Test]
@@ -52,8 +52,7 @@ namespace UnitTests
                 users.Add(new User
                 {
                     Name = i.ToString(),
-                    UserId = i,
-                    UserName = i.ToString()
+                    Id = i.ToString(),
                 });
             }
             return users;
