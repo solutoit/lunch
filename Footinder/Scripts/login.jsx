@@ -2,7 +2,7 @@
 	render: function() {
 		return (
 			<form action="/Login/DoLogin" method="post" className="w-clearfix">
-				<input className="w-input field" type="text" name="name" placeholder="Enter your soluto domain name" />
+				<input className="w-input field" type="text" name="name" placeholder="Your user name (in Soluto domain)" />
 				<button className="w-button button" type="submit">Login</button>
 			</form>
 		);
