@@ -1,10 +1,13 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Footinder.Models
 {
     public class User
     {
+        [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
         public string Name { get; set; }
 
