@@ -10,5 +10,15 @@ namespace Footinder.Models
     {
         public string Id { get; set; }
         public string Name { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return Id == ((User) obj).Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
     }
 }
