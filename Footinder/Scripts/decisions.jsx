@@ -21,7 +21,7 @@ var DecisionButtons = React.createClass({
 		var onNo = this.decisionHandler.bind(this, false);
 		var onYes = this.decisionHandler.bind(this, true);
 		return (
-			<div class='decision-buttons'>
+			<div className='decision-buttons'>
 				<button onClick={onNo}>no</button>
 				<button onClick={onYes}>yes</button>
 			</div>
@@ -45,7 +45,7 @@ var App = React.createClass({
     },
     decisionHandler: function(decision) {
     	// Update server
-		$.post('/api/Vote?id=' + this.getCurrentRest().Id + '&vote=' + decision);
+		$.post('/Vote?id=' + this.getCurrentRest().Id + '&vote=' + decision);
 
     	var curr = this.state.currentRest;
 

@@ -33,15 +33,11 @@ namespace UnitTests
         public void LunchGroupsDecider_4UserForOneRestaruant_OneLanuchGroupd()
         {
             var users = CreateUsers(4);
-            IEnumerable<Vote> votes = CreatVotesFor(FirstRestaurant, users.ToArray());
-
-            mLunchGroupsDecider.Decide(votes);
+            List<Vote> votes = CreatVotesFor(FirstRestaurant, users);
         }
 
-        private IEnumerable<Vote> CreatVotesFor(Restaurant restaurant, params User[] users)
+        private List<Vote> CreatVotesFor(Restaurant restaurant, List<User> users)
         {
-            if (users == null) return new List<Vote>();
-
             return users.Select(user => new Vote
             {
                 Restaurant = restaurant, User = user, Decision = true, Date = DateTime.Now
