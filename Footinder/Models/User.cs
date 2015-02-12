@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography;
 using System.Text;
 using Footinder.DataAccess;
 using MongoDB.Bson;
@@ -27,5 +28,20 @@ namespace Footinder.Models
             return sb.ToString();
         }
 
+        public override bool Equals(object obj)
+        {
+        
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            return Id == ((User) obj).Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
     }
 }
